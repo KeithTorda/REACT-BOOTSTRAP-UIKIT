@@ -1,0 +1,154 @@
+/* =========================================================================
+   DESIGN TOKENS — single source of truth.
+   ThemeProvider overwrites --primary / --secondary / --border-radius at runtime,
+   so every soft shade is derived from the RGB triplets below.
+   ========================================================================= */
+:root {
+  /* ---- Brand (overwritten by ThemeProvider) ---- */
+  --primary: #2fdf84;
+  --primary-dark: #22c571;
+  --primary-rgb: 47, 223, 132;
+  --on-primary: #0b3b23;
+  --primary-soft: rgba(var(--primary-rgb), 0.12);
+  --primary-soft-strong: rgba(var(--primary-rgb), 0.22);
+
+  --secondary: #8944d7;
+  --secondary-rgb: 137, 68, 215;
+  --secondary-dark: #7429c4;
+  --secondary-soft: rgba(var(--secondary-rgb), 0.12);
+
+  /* ---- Semantic ---- */
+  --success: #22c571; --success-rgb: 34, 197, 113;  --success-soft: rgba(var(--success-rgb), .12);
+  --danger:  #f73164; --danger-rgb: 247, 49, 100;   --danger-soft:  rgba(var(--danger-rgb), .12);
+  --warning: #f8d62b; --warning-rgb: 248, 214, 43;  --warning-soft: rgba(var(--warning-rgb), .18);
+  --info:    #009ce7; --info-rgb: 0, 156, 231;      --info-soft:    rgba(var(--info-rgb), .12);
+  --dark:    #2c323f; --dark-rgb: 44, 50, 63;       --dark-soft:    rgba(var(--dark-rgb), .12);
+  --light:   #f4f6f9; --light-rgb: 244, 246, 249;   --light-soft:   rgba(var(--light-rgb), .6);
+
+  /* ---- Surfaces ---- */
+  --background: #f4f6f9;
+  --surface: #ffffff;
+  --surface-muted: #f8f9fb;
+  --surface-inverse: #1f2430;
+  --border: #d5dbe1;
+  --border-soft: #eaeaea;
+  --overlay: rgba(0, 0, 0, .45);
+
+  /* ---- Sidebar / navbar surfaces (overridden per style) ---- */
+  --sidebar-bg: var(--surface);
+  --sidebar-fg: #333333;
+  --sidebar-muted: #9aa2ab;
+  --sidebar-border: var(--border);
+  --sidebar-hover: var(--surface-muted);
+  --sidebar-active-bg: var(--primary-soft);
+  --sidebar-active-fg: var(--primary-dark);
+  --navbar-bg: var(--surface);
+  --navbar-fg: #333333;
+  --navbar-border: var(--border);
+
+  /* ---- Typography ---- */
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-size-base: 0.875rem;
+  --text-primary: #333333;
+  --text-heading: #000000;
+  --text-secondary: #777777;
+  --text-muted: #9aa2ab;
+
+  /* ---- Metrics ---- */
+  --sidebar-width: 270px;
+  --sidebar-collapsed-width: 76px;
+  --navbar-height: 60px;
+  --layout-gutter: 10px;
+  --content-padding: 24px;
+  --boxed-max-width: 1440px;
+
+  /* ---- Density (overridden by [data-density=compact]) ---- */
+  --space-card: 20px;
+  --space-card-header: 15px 20px;
+  --control-padding-y: 0.469rem;
+  --row-padding-y: 12px;
+
+  /* ---- Shape & depth ---- */
+  --border-radius: 10px;
+  --border-radius-sm: 6px;
+  --border-radius-lg: 16px;
+  --border-radius-pill: 50rem;
+  --card-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
+  --card-shadow-hover: 0 10px 24px rgba(36, 37, 38, 0.14);
+  --dropdown-shadow: 0 8px 24px rgba(36, 37, 38, 0.16);
+  --focus-ring: 0 0 0 0.2rem var(--primary-soft);
+
+  --transition: all 0.25s ease;
+  --gradient-accent: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-accent-x: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+
+  /* ---- Bootstrap bridge ---- */
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: var(--primary-rgb);
+  --bs-secondary: var(--secondary);
+  --bs-secondary-rgb: var(--secondary-rgb);
+  --bs-success: var(--success);
+  --bs-danger: var(--danger);
+  --bs-warning: var(--warning);
+  --bs-info: var(--info);
+  --bs-body-font-family: var(--font-sans);
+  --bs-body-font-size: var(--font-size-base);
+  --bs-body-color: var(--text-primary);
+  --bs-body-bg: var(--background);
+  --bs-border-color: var(--border);
+  --bs-border-radius: var(--border-radius);
+  --bs-link-color: var(--info);
+  --bs-link-hover-color: var(--primary-dark);
+}
+
+/* ================= DARK MODE ================= */
+[data-theme='dark'] {
+  --background: #14181f;
+  --surface: #1b2029;
+  --surface-muted: #222834;
+  --surface-inverse: #0d1015;
+  --border: #2e3542;
+  --border-soft: #262c37;
+  --overlay: rgba(0, 0, 0, .65);
+
+  --text-primary: #d3d8e0;
+  --text-heading: #f2f5f9;
+  --text-secondary: #98a1ae;
+  --text-muted: #6f7885;
+
+  --sidebar-bg: #1b2029;
+  --sidebar-fg: #c7cedb;
+  --sidebar-muted: #6f7885;
+  --sidebar-border: #2e3542;
+  --sidebar-hover: #232a36;
+  --navbar-bg: #1b2029;
+  --navbar-fg: #c7cedb;
+  --navbar-border: #2e3542;
+
+  --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+  --card-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.45);
+  --dropdown-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --dark: #e6ebf2;
+  --dark-rgb: 230, 235, 242;
+  --light: #222834;
+  --light-rgb: 34, 40, 52;
+
+  --bs-body-color: var(--text-primary);
+  --bs-body-bg: var(--background);
+  --bs-border-color: var(--border);
+  color-scheme: dark;
+}
+
+/* ================= DENSITY ================= */
+[data-density='compact'] {
+  --font-size-base: 0.8125rem;
+  --space-card: 14px;
+  --space-card-header: 10px 14px;
+  --control-padding-y: 0.3rem;
+  --row-padding-y: 8px;
+  --content-padding: 16px;
+  --navbar-height: 52px;
+  --sidebar-width: 240px;
+}

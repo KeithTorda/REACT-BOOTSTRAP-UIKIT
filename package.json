@@ -1,0 +1,60 @@
+{
+  "name": "admin-ui-kit",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Reusable React + Bootstrap 5 admin UI component library \u2014 themeable, dark-mode ready, with page templates.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:lib": "vite build --config vite.lib.config.js && node scripts/postbuild.mjs",
+    "preview": "vite preview",
+    "prepare": "npm run build:lib || true"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "chart.js": "^4.4.3",
+    "prop-types": "^15.8.1",
+    "react-chartjs-2": "^5.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "vite": "^5.4.0"
+  },
+  "main": "./dist/admin-ui-kit.cjs",
+  "module": "./dist/admin-ui-kit.js",
+  "style": "./dist/admin-ui-kit.css",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/admin-ui-kit.js",
+      "require": "./dist/admin-ui-kit.cjs"
+    },
+    "./styles.css": "./dist/admin-ui-kit.css",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "app",
+    "scripts",
+    "index.html",
+    "vite.config.js",
+    "vite.lib.config.js",
+    "README.md",
+    "PLAN.md",
+    "PLAN-V2-VARIATIONS.md"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "react-router-dom": ">=6"
+  }
+}
